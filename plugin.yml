@@ -1,23 +1,10 @@
-name: NamePlates
+name: SleepyTime
 version: 1.1.0
 author: mouseymars
-description: NamePlates is a plugin that allows you to change the players name plates (also known as a name tag, or floating name), and can also change the tab!
-website: http://github.com/iaidan/nameplates
-main: net.aidantaylor.bukkit.nameplates.NamePlates
-commands:
-   nameplates:
-      description: Main command for all 'NamePlates' commands
-      aliases: [nametags, ntags, nplates]
+description: A simple plugin to configure server sleeping patterns
+website: http://github.com/iaidan/sleepytime
+main: net.aidantaylor.bukkit.sleepytime.SleepyTime
 permissions:
-   nameplates.version:
-       description: Display NamePlates version and information
+   sleepytime.allow:
+       description: Allows a user to be counted towards changing server time
        default: true
-   nameplates.refresh:
-       description: Refresh players, colours and player list
-       default: op
-   nameplates.reload:
-       description: Reload NamePlates
-       default: op
-   nameplates.help:
-       description: List of plugin commands and usage
-       default: op
