@@ -1,0 +1,53 @@
+# ===============================================================================
+# NamePlates
+# Author: mouseymars
+# Website: http://taylorcraft.net
+# ===============================================================================
+# Be aware that this plugin may not work if you have another plugin installed
+#  that uses the ScoreBoard API but does not use the main scoreboard.
+# ===============================================================================
+
+# Should coloured names be added to the tab?
+# If you use another plugin that modifies the tab, this feature may not work.
+modifytab: true
+
+# Removes all colours, special chars and formats from the tab
+# If you use another plugin that modifies the tab, this feature may not work.
+cleantab: false
+
+# Should colours and custom colours be added to chat?
+# If you use another plugin that modifies the chat, this feature may not work.
+modifychat: true
+
+# What colour should OPs have?
+# To unset this option, you can comment it out or make it OPColour: ''
+#OPColour: '&4'
+
+# Should coloured names automatically refreshed?
+autorefresh: true
+
+# How often should the coloured names be refreshed?
+# This does not matter if autorefresh is set to false
+# This is in milliseconds, e.g. 60 seconds = 60000 milliseconds
+refreshinterval: 60000
+
+# Should the health of the player be displayed under their name?
+# Set this to false to disable the nameplates.health permissions
+showhealth: true
+
+# Should display names be used over actual player names?
+useDisplayName: true
+
+# Should debug information be displayed?
+debug: false
+
+# Only allow the use of tag permissions set by you
+onlycustom: false
+
+# Custom tag permissions, these can be used in your preferred permissions manager
+# List format = name:format
+# These fill be formed into permissions for you to use: nameplates.custom.<custom permission name>
+#custom:
+  #name:
+    #prefix: '&4'
+    #suffix: ''
