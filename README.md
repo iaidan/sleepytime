@@ -7,7 +7,8 @@ Bukkit Minecraft Server Mod, http://bukkit.org
 
 <h3>Features</h3>
 <ul>
-  <li></li>
+  <li>Allows you to set a % of the server to sleep for it to be day</li>
+  <li>Can be configured to work in selected worlds</li>
 </ul>
 <h3>Installation</h3>
 <ol>
@@ -15,20 +16,18 @@ Bukkit Minecraft Server Mod, http://bukkit.org
   <li>Restart Bukkit</li>
   <li>(Optional) Stop Bukkit and edit the /plugins/sleepytime/config.yml file</li>
 </ol>
-<h3>Commands and Permissions</h3>
+<h3>Permissions</h3>
 <table>
   <tbody>
     <tr>
-      <th>Command</th>
       <th>Function</th>
       <th>Permission</th>
       <th>Default</th>
     </tr>
     <tr>
-      <td>name</td>
-      <td>desc</td>
-      <td>perm</td>
-      <td>op</td>
+      <td>Allows a user to be counted towards changing server time</td>
+      <td>sleepytime.allow</td>
+      <td>true</td>
     </tr>
   </tbody>
 </table>
