@@ -1,6 +1,6 @@
 <h2>SleepyTime</h2>
 
-A simple plugin to configure server sleeping patterns
+A simple plugin to configure server sleeping patterns.
 
 <h3>Dependencies</h3>
 Bukkit Minecraft Server Mod, http://bukkit.org
