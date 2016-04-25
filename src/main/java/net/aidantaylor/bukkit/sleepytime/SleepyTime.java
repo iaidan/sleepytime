@@ -12,6 +12,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerBedEnterEvent;
 import org.bukkit.event.player.PlayerBedLeaveEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class SleepyTime extends JavaPlugin implements Listener {
@@ -56,6 +58,12 @@ public final class SleepyTime extends JavaPlugin implements Listener {
 			return;
 		}
 		
+		if (sleeping.indexOf(player) < 0) {
+			sleeping.add(player);
+		}
+		
+		log(player + " is sleeping");
+		
 		checkSleep(player);
 	}
 	
@@ -70,18 +78,25 @@ public final class SleepyTime extends JavaPlugin implements Listener {
 		
 		log(player + " stopped sleeping");
 	}
+
+	@EventHandler
+	public void onPlayerJoin(PlayerJoinEvent event) {
+		checkSleep(event.getPlayer(), true);
+	}
+
+	@EventHandler
+	public void onPlayerQuit(PlayerQuitEvent event) {
+		checkSleep(event.getPlayer(), true);
+	}
 	
 	public void checkSleep(Player player) {
+		checkSleep(player, false);
+	}
+	
+	public void checkSleep(Player player, boolean noOutput) {
 		World world = player.getWorld();
-		
-		if (sleeping.indexOf(player) < 0) {
-			sleeping.add(player);
-		}
-		
-		log(player + " is sleeping");
         
         for (String world2 : worlds){
-    		
         	if (world.getName().indexOf(world2) >= 0 && world.getTime() >= 13000) {
         		float onlinePlayers = Bukkit.getOnlinePlayers().size();
         		float delta = Math.round(onlinePlayers * playerAmount);
@@ -89,7 +104,9 @@ public final class SleepyTime extends JavaPlugin implements Listener {
         		log("Sleep delta " + delta + " sleep decimal " + playerAmount);
         		log("players sleeping " + sleeping.size() + " online players " + onlinePlayers + "");
         		
-        		sendMessage(ChatColor.YELLOW + "" + sleeping.size() + "/" + ((int) delta) + " are currently sleeping...");
+        		if (!noOutput) {
+        			sendMessage(ChatColor.YELLOW + "" + sleeping.size() + "/" + ((int) delta) + " are currently sleeping...");
+        		}
         		
         		if (sleeping.size() >= delta) {
         			log("setting time to day");
